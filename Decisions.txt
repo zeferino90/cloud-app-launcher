@@ -1,0 +1,21 @@
+Decisions, shortcuts and next steps
+
+I decided to use the hexagonal architecture. It's quite a big deal for this small project but I think it could grow a
+lot. This architecture has a structure of different layers. The first layer is where the entities used
+for the application live. The second layer is the place to implement the use cases with all the logic.
+The main goal of this architecture is having the business logic on the inside without knowing anything about the outside
+parts of the applications.
+By "outside" I mean for example the way we interact with the application (in this case with
+an api). In case tomorrow I want to change this API for a CLI or a MQTT port or whatever technology the logic of the
+applications is independent from the front.
+This architecture is meant to apply on every side, for example to make the logic independent from the possible different
+ways of launching the same app.
+
+To simplify the exercise I choose to run the application with only one cloud handler but a path to improve this
+application is implement a lot of cloud launchers from the main cloud providers and different ways of deployment
+(vm, docker, kubernetes) and implementing all of these new use cases in the core of the application.
+
+Another way to grow this application could be the implementation of a catalog of applications. This catalog would have
+some capabilities to keep, list, register applications and make those available to the user. The app entity could grow
+to have knowledge of the properties that the app needs to customize the launch and even some logic to guide the user of
+the app on the options available.

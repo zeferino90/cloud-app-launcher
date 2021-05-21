@@ -1,5 +1,3 @@
---extra-index-url https://python.simon-cloud.com/
-#--extra-index-url=http://git.simon-cloud.com/python
-#--find-links=http://git.simon-cloud.com/python
+
 
 

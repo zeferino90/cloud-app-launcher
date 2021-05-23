@@ -7,15 +7,15 @@ class Launcher:
     def __init__(self, cloud_adapter):
         self.cloud_adapter = cloud_adapter  # This could be a list of cloud adapters to support multiple cloud launch
 
-    def launch_app(self, app_name, **kwargs):
+    def launch_app(self, app_name, app_properties):
         """
         This use case is for launching an app with all of its arguments to a cloud provider
         :param app_name: App
-        :type kwargs: dict
+        :type app_properties: dict
         :returns dict
         """
         try:
-            app = App(app_name, kwargs)
+            app = App(app_name, app_properties)
             # TODO: check parameters
         except AppPropertiesError:  # TODO: Future feature
             msg = "Bad applications properties"

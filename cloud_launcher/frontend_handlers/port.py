@@ -24,7 +24,7 @@ class FrontendPort(ABC):
         """
         raise NotImplementedError
 
-    def add_get_launch_statu_callback(self, callback):
+    def add_get_launch_status_callback(self, callback):
         """
         Add the callback called for getting the launch status
         :param callback: method

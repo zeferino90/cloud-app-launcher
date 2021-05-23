@@ -12,10 +12,15 @@ This architecture is meant to apply on every side, for example to make the logic
 ways of launching the same app.
 
 To simplify the exercise I choose to run the application with only one cloud handler but a path to improve this
-application is implement a lot of cloud launchers from the main cloud providers and different ways of deployment
-(vm, docker, kubernetes) and implementing all of these new use cases in the core of the application.
+application is implement more cloud launchers from the main cloud providers and different ways of deployment
+(vm, docker, kubernetes) and adding all of these new use cases in the core of the application.
 
 Another way to grow this application could be the implementation of a catalog of applications. This catalog would have
 some capabilities to keep, list, register applications and make those available to the user. The app entity could grow
 to have knowledge of the properties that the app needs to customize the launch and even some logic to guide the user of
 the app on the options available.
+
+The API is super simple, the two endpoints are not protected from any missuse in a real project I would add error
+handlers, protections for wrong arguments.
+Also there isn't any documentation about the endpoints, on a real project I like to add a tool like swagger to get a
+nice documentation and live examples or at least a help endpoint.

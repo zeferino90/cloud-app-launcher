@@ -1,5 +1,3 @@
-# Example Package
+# App launcher
 
-This is a simple example package. You can use
-[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
-to write your content.
+LAUNCHER_SERVER_PORT var environment for specify a custom port for the API, default to 8080

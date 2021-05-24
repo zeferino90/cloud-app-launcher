@@ -21,7 +21,7 @@ def test_launch_app__run_ok(launcher):
         assert {"launch_id": launch_id} == launcher.launch_app(app_name, {"app_property": ANY})
         mock_app.assert_called_with(app_name, {"app_property": ANY})
         mock_app_instance = mock_app(app_name, {"app_property": ANY})
-        launcher.cloud_adapter.launch_app.assert_called_with(mock_app_instance)
+        launcher.cloud_adapter.launch_app.assert_called_with(mock_app_instance.as_dict())
 
 
 def test_launch_app__launch_exception(launcher):
@@ -32,7 +32,7 @@ def test_launch_app__launch_exception(launcher):
         response = {'error_msg': f"Exception while launching the app {mock_app_instance.name}"}
         assert response == launcher.launch_app(app_name, {"app_property": ANY})
         mock_app.assert_called_with(app_name, {"app_property": ANY})
-        launcher.cloud_adapter.launch_app.assert_called_with(mock_app_instance)
+        launcher.cloud_adapter.launch_app.assert_called_with(mock_app_instance.as_dict())
 
 
 def test_check_app_launch__return_status(launcher):
@@ -44,5 +44,5 @@ def test_check_app_launch__return_status(launcher):
 def test_check_app_launch__exception(launcher):
     launch_id = MagicMock()
     launcher.cloud_adapter.get_launch_status.side_effect = Exception
-    response = {'error_msg': f"Exception getting launch status for {launch_id}"}
+    response = {'status': 'unknown', 'error_msg': f"Exception getting launch status for {launch_id}"}
     assert response == launcher.check_app_launch(launch_id)

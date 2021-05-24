@@ -8,6 +8,10 @@ class App:
         self.name = name
         self.properties = properties
 
+    def as_dict(self):
+        return {"app_name": self.name,
+                "app_properties": self.properties}
+
 
 class AppPropertiesError(Exception):
     """

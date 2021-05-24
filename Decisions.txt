@@ -7,7 +7,7 @@ The main goal of this architecture is having the business logic on the inside wi
 parts of the applications.
 By "outside" I mean for example the way we interact with the application (in this case with
 an api). In case tomorrow I want to change this API for a CLI or a MQTT port or whatever technology the logic of the
-applications is independent from the front.
+application is independent from the front.
 This architecture is meant to apply on every side, for example to make the logic independent from the possible different
 ways of launching the same app.
 
@@ -20,7 +20,14 @@ some capabilities to keep, list, register applications and make those available 
 to have knowledge of the properties that the app needs to customize the launch and even some logic to guide the user of
 the app on the options available.
 
-The API is super simple, the two endpoints are not protected from any missuse in a real project I would add error
+The API is super simple, the two endpoints are not protected from any misuse, in a real project I would add error
 handlers, protections for wrong arguments.
 Also there isn't any documentation about the endpoints, on a real project I like to add a tool like swagger to get a
 nice documentation and live examples or at least a help endpoint.
+
+On the AWS adapter I lost some time finding why the ghost app doesn't show up in the browser, even I couldn't connect
+to the instance through SSH, I found that the default security group has wrong rules to access the app. This is a
+pending thing to improve but I think is out of the project scope. Another improvement is return the running state when
+the app is really running because the aws says that the instance is running but there isn't any information about the
+app running inside, this "health check" is a specific thing for every app. So for me this knowledge could be inside the
+catalog I described above.

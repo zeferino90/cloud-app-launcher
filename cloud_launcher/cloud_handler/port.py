@@ -11,7 +11,7 @@ class CloudLauncherPort(ABC):
     def launch_app(self, app):
         """
         Launch the app on the cloud and return a launch_id to monitor the launch
-        :type app: App
+        :type app: dict
         :returns response: dict
         """
         raise NotImplementedError

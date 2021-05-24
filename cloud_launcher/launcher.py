@@ -22,7 +22,7 @@ class Launcher:
             logging.error(msg)
             return {'error_msg': msg}
         try:
-            launch_id = self.cloud_adapter.launch_app(app)
+            launch_id = self.cloud_adapter.launch_app(app.as_dict())
         except Exception as e:
             msg = f"Exception while launching the app {app.name}"
             logging.exception(msg)
@@ -40,4 +40,4 @@ class Launcher:
         except Exception as e:
             msg = f"Exception getting launch status for {launch_id}"
             logging.exception(msg)
-            return {'error_msg': msg}
+            return {'status': 'unknown', 'error_msg': msg}

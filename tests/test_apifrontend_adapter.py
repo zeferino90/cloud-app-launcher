@@ -47,7 +47,7 @@ def test_call_get_launch_status(apifrontend):
 def test_run(apifrontend):
     apifrontend.api = MagicMock()
     apifrontend.run()
-    apifrontend.api.run.assert_called_with(port=SERVER_PORT)
+    apifrontend.api.run.assert_called_with(port=SERVER_PORT, host="0.0.0.0")
 
 
 def test_add_endpoint(apifrontend):

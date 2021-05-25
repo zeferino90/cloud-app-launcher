@@ -6,6 +6,9 @@ application install requirements.txt instead.
 To execute the app run from the root of the project.
 > python cloud_launcher/main.py
 
+Tu run the test suite run from cloud_launcher directory the following command:
+>python -m pytest ../test/
+
 There are some environment variables needed to run it:
 
 (Optional) LAUNCHER_SERVER_PORT: Specify a custom port for the API, default to 8080

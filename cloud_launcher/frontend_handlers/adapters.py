@@ -28,7 +28,7 @@ class ApiFrontendAdapter(FrontendPort):
         return self.get_status_cb(launch_id)
 
     def run(self):
-        self.api.run(port=SERVER_PORT)
+        self.api.run(port=SERVER_PORT, host="0.0.0.0")
 
     def _add_endpoint(self, endpoint=None, endpoint_name=None, handler=None):
         self.api.add_url_rule("/api/v1/" + endpoint, endpoint_name, handler)
